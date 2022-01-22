@@ -1,33 +1,33 @@
-//Ê¹ÓÃ#defineÀ´½øĞĞÏàÓ¦µÄ²Ù×÷
+//ä½¿ç”¨#defineæ¥è¿›è¡Œç›¸åº”çš„æ“ä½œ
 
-//Á´±íÇóºÍ
+//é“¾è¡¨æ±‚å’Œ
 //#define _ADT_HELLO_QIU_
 
-//Äæ²¨À¼±í´ïÊ½ÇóÖµ
+//é€†æ³¢å…°è¡¨è¾¾å¼æ±‚å€¼
 //#define _EVALRPN_HELLO_QIU_
 
-//Ë³Ğò±í
+//é¡ºåºè¡¨
 //#define _ArrayList_HELLO_QIU_
 
-//Á½ÊıºÍ
+//ä¸¤æ•°å’Œ
 //#define _ADD_TWO_NUM_H_HELLO_QIU_
 
-//Ê®×ÖÁÚ½Ó¾ØÕó
+//åå­—é‚»æ¥çŸ©é˜µ
 //#define _OLMATRIX_HELLO_QIU_
 
-//leetcode 5546. °´¼ü³ÖĞøÊ±¼ä×î³¤µÄ¼ü
+//leetcode 5546. æŒ‰é”®æŒç»­æ—¶é—´æœ€é•¿çš„é”®
 //#define _SLOWEST_KEY_HELLO_QIU_
 
-//¸÷ÖÖÅÅĞò
+//å„ç§æ’åº
 //#define _SORT_HELLO_QIU_
 
-//»ùÊıÅÅĞò
+//åŸºæ•°æ’åº
 //#define _CARDINAL_SORT_HELLO_QIU_
 
-//±í´ïÊ½Ê÷
+//è¡¨è¾¾å¼æ ‘
 //#define _EXPRESSION_TREE_HELLO_QIU_
 
-//ÁÙÊ±µ÷ÊÔ
+//ä¸´æ—¶è°ƒè¯•
 #define _TEMP_DEBUG_HELLO_QIU_
 
 #ifdef _EVALRPN_HELLO_QIU_
@@ -71,7 +71,7 @@
 #include "tree/expression_tree.h"
 #endif
 
-int main(int argc, int* argv[])
+int main(int argc, char* argv[])
 {
 	printf("%s %s\n", __DATE__, __TIME__);
 #ifdef _ADT_HELLO_QIU_

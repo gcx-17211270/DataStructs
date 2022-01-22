@@ -42,5 +42,5 @@ int** fourSum(int* nums, int numsSize, int target, int* returnSize, int** return
 }
 
 
-//1.±©Á¦·¨¡ª¡ªËÄÖØÑ­»·
+//1.æš´åŠ›æ³•â€”â€”å››é‡å¾ªç¯
 //

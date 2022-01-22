@@ -1,0 +1,63 @@
+cmake_minimum_required(VERSION 3.21)
+project(DataStructs)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(List)
+include_directories(List/algorithm)
+include_directories(List/graph)
+include_directories(List/list)
+include_directories(List/matrix)
+include_directories(List/priorityQueue)
+include_directories(List/search)
+include_directories(List/sort)
+include_directories(List/tree)
+
+add_executable(DataStructs
+        List/algorithm/addTwoNum.c
+        List/algorithm/addTwoNum.h
+        List/algorithm/evalRPN.c
+        List/algorithm/evalRPN.h
+        List/algorithm/fourSum.c
+        List/algorithm/slowestKey.c
+        List/algorithm/slowestKey.h
+        List/graph/graph.h
+        List/list/ADT.c
+        List/list/ADT.h
+        List/list/ArrayList.c
+        List/list/ArrayList.h
+        List/list/linkedstack.c
+        List/list/linkedstack.h
+        List/list/seqqueue.c
+        List/list/seqqueue.h
+        List/list/seqstack.c
+        List/list/seqstack.h
+        List/list/SList.c
+        List/list/SList.h
+        List/matrix/densematrix.c
+        List/matrix/densematrix.h
+        List/matrix/olMatrix.c
+        List/matrix/olMatrix.h
+        List/matrix/RLSMatrix.c
+        List/matrix/RLSMatrix.h
+        List/matrix/SpareMatrix.c
+        List/matrix/SparseMatrix.h
+        List/priorityQueue/BinHeap.c
+        List/priorityQueue/BinHeap.h
+        List/search/hashtable.c
+        List/search/hashtable.h
+        List/search/Search.c
+        List/search/Search.h
+        List/sort/cardinal_sort.cc
+        List/sort/cardinal_sort.h
+        List/sort/Sort.c
+        List/sort/Sort.h
+        List/tree/BiTree.c
+        List/tree/BiTree.h
+        List/tree/expression_tree.c
+        List/tree/expression_tree.h
+        List/tree/splayTree.c
+        List/tree/tree.h
+        List/main.c
+        List/temp.cpp
+        List/temp.h)
