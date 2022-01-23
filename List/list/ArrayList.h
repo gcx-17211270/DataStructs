@@ -10,62 +10,62 @@
 extern "C"
 {
 #endif
-	//Ö¸ÏòÊı×éÖĞÊı¾İÀàĞÍµÄÖ¸Õë
+	//æŒ‡å‘æ•°ç»„ä¸­æ•°æ®ç±»å‹çš„æŒ‡é’ˆ
 	typedef void* ArrayListValue;
 
-	//¶¨Òå¶¯Ì¬Êı×é½á¹¹
+	//å®šä¹‰åŠ¨æ€æ•°ç»„ç»“æ„
 	typedef struct ArrayList ArrayList;
 
 	struct ArrayList
 	{
-		//Êı×éµÄ·ÃÎÊÈë¿Ú
+		//æ•°ç»„çš„è®¿é—®å…¥å£
 		ArrayListValue* data;
-		//Êı×éÖĞÒÑ´æ´¢Êı¾İ³¤¶È
+		//æ•°ç»„ä¸­å·²å­˜å‚¨æ•°æ®é•¿åº¦
 		unsigned int length;
-		//Êı×éµÄ×î´ó³¤¶È
+		//æ•°ç»„çš„æœ€å¤§é•¿åº¦
 		unsigned int _alloced;
 	};
 
-	//±È½ÏÊı×éÖĞÁ½¸öÊı¾İÊÇ·ñÏàµÈ£¬ÏàµÈ·µ»Ø·Ç0Öµ£¬·ñÔò·µ»Ø0
+	//æ¯”è¾ƒæ•°ç»„ä¸­ä¸¤ä¸ªæ•°æ®æ˜¯å¦ç›¸ç­‰ï¼Œç›¸ç­‰è¿”å›é0å€¼ï¼Œå¦åˆ™è¿”å›0
 	typedef int (*ArrayListEqualFunc)(ArrayListValue value1,
 		ArrayListValue value2);
 
-	//±È½ÏÊı×éÖĞÁ½¸öÊı¾İ£¬value1>value2Ôò·µ»ØÕıÖµ£¬ÏàµÈ·µ»Ø0£¬Ğ¡ÓÚ·µ»Ø¸ºÖµ
+	//æ¯”è¾ƒæ•°ç»„ä¸­ä¸¤ä¸ªæ•°æ®ï¼Œvalue1>value2åˆ™è¿”å›æ­£å€¼ï¼Œç›¸ç­‰è¿”å›0ï¼Œå°äºè¿”å›è´Ÿå€¼
 	typedef int (*ArrayListCompareFunc)(ArrayListValue value1,
 		ArrayListValue value2);
 
-	//¶¯Ì¬Êı×é½á¹¹£¬Ê¹ÓÃËüÀ´³õÊ¼»¯Êı×é£¬´«Èë³õÊ¼»¯º¯ÊıÊÇ×î³õ·ÖÅä¸ø
-	//¶¯Ì¬Êı×éµÄÄÚ´æ´óĞ¡£¬Èôlength±»¸³ÓèÁã»ò¸ºÖµ£¬ÔòÊ¹ÓÃÒ»¸öºÏÀíµÄÄ¬ÈÏ´óĞ¡
+	//åŠ¨æ€æ•°ç»„ç»“æ„ï¼Œä½¿ç”¨å®ƒæ¥åˆå§‹åŒ–æ•°ç»„ï¼Œä¼ å…¥åˆå§‹åŒ–å‡½æ•°æ˜¯æœ€åˆåˆ†é…ç»™
+	//åŠ¨æ€æ•°ç»„çš„å†…å­˜å¤§å°ï¼Œè‹¥lengthè¢«èµ‹äºˆé›¶æˆ–è´Ÿå€¼ï¼Œåˆ™ä½¿ç”¨ä¸€ä¸ªåˆç†çš„é»˜è®¤å¤§å°
 	ArrayList* arraylist_new(unsigned int length);
 
-	//Ïú»Ù¶¯Ì¬Êı×é²¢ÇÒÊÍ·ÅÆäÕ¼ÓÃµÄÄÚ´æ
+	//é”€æ¯åŠ¨æ€æ•°ç»„å¹¶ä¸”é‡Šæ”¾å…¶å ç”¨çš„å†…å­˜
 	void arraylist_free(ArrayList* arraylist);
 
-	//ÔÚ¶¯Ì¬Êı×éµÄÎ²²¿Ìí¼ÓÒ»¸öÊı¾İ
+	//åœ¨åŠ¨æ€æ•°ç»„çš„å°¾éƒ¨æ·»åŠ ä¸€ä¸ªæ•°æ®
 	int arraylist_append(ArrayList* arraylist, ArrayListValue data);
 
-	//ÔÚ¶¯Ì¬Êı×éµÄÍ·²¿Ìí¼ÓÒ»¸öÊı¾İ
+	//åœ¨åŠ¨æ€æ•°ç»„çš„å¤´éƒ¨æ·»åŠ ä¸€ä¸ªæ•°æ®
 	int arraylist_prepend(ArrayList* arraylist, ArrayListValue data);
 
-	//É¾³ı¶¯Ì¬Êı×éÖĞÖ¸¶¨ÏÂ±êµÄÄÚÈİ£¬indexÊÇ±»Çå³ıÄÚÈİËùÔÚµÄÏÂ±ê
+	//åˆ é™¤åŠ¨æ€æ•°ç»„ä¸­æŒ‡å®šä¸‹æ ‡çš„å†…å®¹ï¼Œindexæ˜¯è¢«æ¸…é™¤å†…å®¹æ‰€åœ¨çš„ä¸‹æ ‡
 	void arraylist_remove(ArrayList* arraylist, unsigned int index);
 
-	//Çå³ı¶¯Ì¬Êı×éÖĞÒÔindex¿ªÊ¼£¬³¤¶ÈÎªlenghµÄÄÚÈİ
+	//æ¸…é™¤åŠ¨æ€æ•°ç»„ä¸­ä»¥indexå¼€å§‹ï¼Œé•¿åº¦ä¸ºlenghçš„å†…å®¹
 	void arraylist_remove_range(ArrayList* arraylist, unsigned int index, unsigned int length);
 
-	//ÔÚÖ¸¶¨µÄÏÂ±êÎ»ÖÃ²åÈëÒ»¸öÊı¾İ£¬²åÈëµãµÄÏÂ±êÊÕ¶¯Ì¬Êı×éµÄ´óĞ¡ÏŞÖÆ
+	//åœ¨æŒ‡å®šçš„ä¸‹æ ‡ä½ç½®æ’å…¥ä¸€ä¸ªæ•°æ®ï¼Œæ’å…¥ç‚¹çš„ä¸‹æ ‡æ”¶åŠ¨æ€æ•°ç»„çš„å¤§å°é™åˆ¶
 	int arraylist_insert(ArrayList* arraylist, unsigned int index, ArrayListValue data);
 
-	//ÔÚ¶¯Ì¬Êı×éÖĞÕÒµ½ÌØ¶¨Êı¾İµÄ×îĞ¡ÏÂ±ê¡£callbackÓÃÓÚ±È½ÏÊı×éÖĞµÄÊı¾İÓë´ıËÑË÷Êı¾İ
+	//åœ¨åŠ¨æ€æ•°ç»„ä¸­æ‰¾åˆ°ç‰¹å®šæ•°æ®çš„æœ€å°ä¸‹æ ‡ã€‚callbackç”¨äºæ¯”è¾ƒæ•°ç»„ä¸­çš„æ•°æ®ä¸å¾…æœç´¢æ•°æ®
 	int arraylist_index_of(ArrayList* arraylist, ArrayListEqualFunc callback, ArrayListValue data);
 
-	//Çå¿Õ¶¯Ì¬Êı×éÖĞµÄÄÚÈİ
+	//æ¸…ç©ºåŠ¨æ€æ•°ç»„ä¸­çš„å†…å®¹
 	void arraylist_clear(ArrayList* arraylist);
 
-	//¶Ô¶¯Ì¬Êı×é½øĞĞÅÅĞò¡£compare_funcÊÇÅÅĞò¹ı³ÌÖĞÓÃÀ´±È½ÏÊı¾İµÄº¯Êı
+	//å¯¹åŠ¨æ€æ•°ç»„è¿›è¡Œæ’åºã€‚compare_funcæ˜¯æ’åºè¿‡ç¨‹ä¸­ç”¨æ¥æ¯”è¾ƒæ•°æ®çš„å‡½æ•°
 	void arraylist_sort(ArrayList* arraylist, ArrayListCompareFunc compare_func);
 
-	//ÄÚ²¿ÅÅĞò£¨¿ìËÙÅÅĞò·½·¨ÊµÏÖ£©
+	//å†…éƒ¨æ’åºï¼ˆå¿«é€Ÿæ’åºæ–¹æ³•å®ç°ï¼‰
 	static void arraylist_sort_internal(ArrayListValue* listData, unsigned int listlength,
 		ArrayListCompareFunc compare_func);
 

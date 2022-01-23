@@ -6,19 +6,19 @@ extern "C" {
 #endif
 #include "SList.h"
 
-	//Ïú»ÙÒ»¸öÕ»
+	//é”€æ¯ä¸€ä¸ªæ ˆ
 	void linkedstack_free(SListEntry* linkedStack);
 
-	//ÔÚÕ»¶¥²åÈëÔªËØ
+	//åœ¨æ ˆé¡¶æ’å…¥å…ƒç´ 
 	SListEntry* linkedstack_push(SListEntry** linkedStack, SListValue data);
 
-	//ÔÚÕ»ÖĞÉ¾³ıÕ»¶¥ÔªËØ
+	//åœ¨æ ˆä¸­åˆ é™¤æ ˆé¡¶å…ƒç´ 
 	SListValue linkedstack_pop(SListEntry** linkedStack);
 
-	//¶ÁÈ¡Õ»¶¥ÔªËØ
+	//è¯»å–æ ˆé¡¶å…ƒç´ 
 	SListValue linkedstack_peek(SListEntry* linkedStack);
 
-	//ÅĞ¶ÏÕ»ÊÇ·ñÎª¿Õ
+	//åˆ¤æ–­æ ˆæ˜¯å¦ä¸ºç©º
 	int linkedstack_is_empty(SListEntry* linkedStack);
 
 #ifdef __cplusplus

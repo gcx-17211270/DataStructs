@@ -1,12 +1,12 @@
 /*
-* Êı¾İ½á¹¹£ºË³Ğò±í¶ÓÁĞ
+* æ•°æ®ç»“æ„ï¼šé¡ºåºè¡¨é˜Ÿåˆ—
 **/
 
 #include <stdio.h>
 #include "ArrayList.h"
 #include "seqqueue.h"
 
-//Êı×éµÄ³¤¶È
+//æ•°ç»„çš„é•¿åº¦
 #define MaxQueueSize 20
 
 SeqQueue* seqqueue_new(void)

@@ -1,6 +1,6 @@
 /*
-* Ê¹ÓÃË³Ğò±íÀ´¼ÆËã¶àÏîÊ½µÄºÍ¡¢»ı
-* Á·Ï°£ºÊ¹ÓÃÁ´±íÀ´ÊµÏÖ£¨ĞèÒªÉæ¼°µ½ºÏ²¢Í¬ÀàÏî£©
+* ä½¿ç”¨é¡ºåºè¡¨æ¥è®¡ç®—å¤šé¡¹å¼çš„å’Œã€ç§¯
+* ç»ƒä¹ ï¼šä½¿ç”¨é“¾è¡¨æ¥å®ç°ï¼ˆéœ€è¦æ¶‰åŠåˆ°åˆå¹¶åŒç±»é¡¹ï¼‰
 **/
 
 #include "ADT.h"
@@ -11,20 +11,20 @@ void polynomial_zero(ArrayList* poly) {
 	unsigned int i;
 	for (i = 0; i < poly->_alloced; i++)
 		*((double*)(poly->data[i])) = 0;
-	poly->length = 1;	//×î¸ß´ÎÊıÎªpoly->length-1 
+	poly->length = 1;	//æœ€é«˜æ¬¡æ•°ä¸ºpoly->length-1 
 }
 
 void polynomial_add(ArrayList* poly1, ArrayList* poly2, ArrayList** polySum) {
 	unsigned int i, l;
-	//È¡poly1ºÍpoly2×î¸ß´ÎÊıµÄ½Ï´óÕßÎªÏà¼ÓºóµÄ×î¸ß´ÎÊı 
+	//å–poly1å’Œpoly2æœ€é«˜æ¬¡æ•°çš„è¾ƒå¤§è€…ä¸ºç›¸åŠ åçš„æœ€é«˜æ¬¡æ•° 
 	l = poly1->length;
 	if (poly2->length > poly1->length)
 		l = poly2->length;
 	*polySum = arraylist_new(l);
-	//·ÖÅäÄÚ´æ¿Õ¼ä 
+	//åˆ†é…å†…å­˜ç©ºé—´ 
 	for (i = 0; i < (*polySum)->_alloced; i++)
 		(*polySum)->data[i] = (double*)malloc(sizeof(double));
-	polynomial_zero(*polySum);	//³õÊ¼»¯ 
+	polynomial_zero(*polySum);	//åˆå§‹åŒ– 
 	(*polySum)->length = l;
 
 	for (i = 0; i < (*polySum)->length; i++)
@@ -33,7 +33,7 @@ void polynomial_add(ArrayList* poly1, ArrayList* poly2, ArrayList** polySum) {
 
 void polynomial_mult(ArrayList* poly1, ArrayList* poly2, ArrayList** polyMult) {
 	unsigned int i, j, l;
-	l = (poly1->length - 1) + (poly2->length - 1) + 1;	//poly1ºÍpoly2µÄ×î¸ß´ÎÊıÖ®ºÍÎªÏà³ËºóµÄ×î¸ß´ÎÊı
+	l = (poly1->length - 1) + (poly2->length - 1) + 1;	//poly1å’Œpoly2çš„æœ€é«˜æ¬¡æ•°ä¹‹å’Œä¸ºç›¸ä¹˜åçš„æœ€é«˜æ¬¡æ•°
 	(*polyMult) = arraylist_new(l);
 	for (i = 0; i < (*polyMult)->_alloced; i++)
 		(*polyMult)->data[i] = (double*)malloc(sizeof(double));

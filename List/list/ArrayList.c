@@ -1,5 +1,5 @@
 /*
-* Êı¾İ½á¹¹£ºË³Ğò±í
+* æ•°æ®ç»“æ„ï¼šé¡ºåºè¡¨
 **/
 
 #include "ArrayList.h"
@@ -14,7 +14,7 @@ ArrayList* arraylist_new(unsigned int length)
 		return NULL;
 	new_arraylist->_alloced = length;
 	new_arraylist->length = 0;
-	/*¸ødata·ÖÅäÄÚ´æµØÖ·*/
+	/*ç»™dataåˆ†é…å†…å­˜åœ°å€*/
 	new_arraylist->data = malloc(length * sizeof(ArrayListValue));
 	if (new_arraylist->data == NULL)
 	{
@@ -36,7 +36,7 @@ void arraylist_free(ArrayList* arraylist)
 	}
 }
 
-//¶¯Ì¬Êı×é³¤¶ÈÀ©³ä
+//åŠ¨æ€æ•°ç»„é•¿åº¦æ‰©å……
 static int arraylist_enlarge(ArrayList* arraylist)
 {
 	ArrayListValue* data;
@@ -49,7 +49,7 @@ static int arraylist_enlarge(ArrayList* arraylist)
 	arraylist->_alloced = newSize;
 	return 1;
 }
-//¶¯Ì¬Êı×é³¤¶ÈËõĞ¡
+//åŠ¨æ€æ•°ç»„é•¿åº¦ç¼©å°
 static int arraylist_delarge(ArrayList* arraylist)
 {
 	ArrayListValue* data;
@@ -65,14 +65,14 @@ static int arraylist_delarge(ArrayList* arraylist)
 
 int arraylist_insert(ArrayList* arraylist, unsigned int index, ArrayListValue data)
 {
-	//¼ì²éÏÂ±êÊÇ·ñÔ½½ç
+	//æ£€æŸ¥ä¸‹æ ‡æ˜¯å¦è¶Šç•Œ
 	if (index > arraylist->length)
 		return 0;
-	//±ØÒªÊ±À©³äÊı×é³¤¶È
+	//å¿…è¦æ—¶æ‰©å……æ•°ç»„é•¿åº¦
 	if (arraylist->length + 1 > arraylist->_alloced)
 		if (!arraylist_enlarge(arraylist))
 			return 0;
-	/*°Ñ´ı²åÈëÎ»ÖÃ¼°Ö®ºóµÄÊı×éÄÚÈİºóÒÆÒ»Î»*/
+	/*æŠŠå¾…æ’å…¥ä½ç½®åŠä¹‹åçš„æ•°ç»„å†…å®¹åç§»ä¸€ä½*/
 	memmove(&arraylist->data[index + 1], &arraylist->data[index],
 		(arraylist->length - index) * sizeof(ArrayListValue));
 	arraylist->data[index] = data;
@@ -94,7 +94,7 @@ void arraylist_remove_range(ArrayList* arraylist, unsigned int index, unsigned i
 {
 	if (index > arraylist->length || index + length > arraylist->length)
 		return;
-	/*°ÑÒÆ³ı·¶Î§Ö®ºóµÄÊı×éÄÚÈİÇ°ÒÆ*/
+	/*æŠŠç§»é™¤èŒƒå›´ä¹‹åçš„æ•°ç»„å†…å®¹å‰ç§»*/
 	memmove(&arraylist->data[index], &arraylist->data[index + length],
 		(arraylist->length - (index + length)) * sizeof(ArrayListValue));
 	arraylist->length -= length;
@@ -136,21 +136,21 @@ static void arraylist_sort_internal(ArrayListValue* listData, unsigned int listL
 	unsigned int list1Length;
 	unsigned int list2Length;
 
-	//Èç¹ûÊı¾İÉÙÓÚ2¸ö£¬ÔòÒÑÍê³ÉÅÅĞò
+	//å¦‚æœæ•°æ®å°‘äº2ä¸ªï¼Œåˆ™å·²å®Œæˆæ’åº
 	if (listLength <= 1)
 		return;
 
-	//½«×îºóÒ»¸öÊı¾İ¸³Öµ¸øpivot
+	//å°†æœ€åä¸€ä¸ªæ•°æ®èµ‹å€¼ç»™pivot
 	pivot = listData[listLength - 1];
 
-	//½«Êı×é·ÖÎªÁ½×é£¬List1°üº¬Ğ¡ÓÚpivotµÄÊı×é£¬List2°üº¬´óÓÚpivotµÄÊı¾İ
-	//Á½¸ö×é½¨Á¢Ö®ºó£¬ËûÃÇÔÚÊı×éÖĞË³ĞòÅÅÁĞ
+	//å°†æ•°ç»„åˆ†ä¸ºä¸¤ç»„ï¼ŒList1åŒ…å«å°äºpivotçš„æ•°ç»„ï¼ŒList2åŒ…å«å¤§äºpivotçš„æ•°æ®
+	//ä¸¤ä¸ªç»„å»ºç«‹ä¹‹åï¼Œä»–ä»¬åœ¨æ•°ç»„ä¸­é¡ºåºæ’åˆ—
 	list1Length = 0;
 	for (i = 0; i < listLength - 1; ++i)
 	{
 		if (compare_func(listData[i], pivot) < 0)
 		{
-			//Êı¾İÓ¦ÔÚlist1ÖĞ£¬ËùÒÔÆä´¦ÓÚ´íÎóµÄÎ»ÖÃ£¬½«´ËÊı¾İÓëlist1×îºóÒ»Ïî½øĞĞ»¥»»
+			//æ•°æ®åº”åœ¨list1ä¸­ï¼Œæ‰€ä»¥å…¶å¤„äºé”™è¯¯çš„ä½ç½®ï¼Œå°†æ­¤æ•°æ®ä¸list1æœ€åä¸€é¡¹è¿›è¡Œäº’æ¢
 			tmp = listData[i];
 			listData[i] = listData[list1Length];
 			listData[list1Length] = tmp;
@@ -158,23 +158,23 @@ static void arraylist_sort_internal(ArrayListValue* listData, unsigned int listL
 		}
 		else
 		{
-			//Êı¾İÓ¦ÔÚlist2ÖĞ£¬ËùÒÔÆäÒÑÎ»ÓÚÕıÈ·µÄÎ»ÖÃ
+			//æ•°æ®åº”åœ¨list2ä¸­ï¼Œæ‰€ä»¥å…¶å·²ä½äºæ­£ç¡®çš„ä½ç½®
 		}
 		list2Length = listLength - list1Length - 1;
 
-		//listData[0,,,list1Length-1]°üº¬ÁËËùÓĞĞ¡ÓÚpivotµÄÊı¾İ
-		//listData[list1Length,,,listLength-2]°üº¬ÁËËùÓĞ´óÓÚpivotµÄÊı¾İ
-		//Í¨¹ı»¥»»pivotÓëlist2µÄµÚÒ»¸öÊı¾İ£¬½«pivotÒÆÖÁÕıÈ·µÄÎ»ÖÃ
+		//listData[0,,,list1Length-1]åŒ…å«äº†æ‰€æœ‰å°äºpivotçš„æ•°æ®
+		//listData[list1Length,,,listLength-2]åŒ…å«äº†æ‰€æœ‰å¤§äºpivotçš„æ•°æ®
+		//é€šè¿‡äº’æ¢pivotä¸list2çš„ç¬¬ä¸€ä¸ªæ•°æ®ï¼Œå°†pivotç§»è‡³æ­£ç¡®çš„ä½ç½®
 		listData[listLength - 1] = listData[list1Length];
 		listData[list1Length] = pivot;
 
-		//Ê¹ÓÃµİ¹é½øĞĞÅÅĞò
+		//ä½¿ç”¨é€’å½’è¿›è¡Œæ’åº
 		arraylist_sort_internal(listData, list1Length, compare_func);
 		arraylist_sort_internal(listData + list1Length + 1, list2Length, compare_func);
 	}
 }
 
-/*¶ÔË³Ğò±íµÄ²Ù×÷£¬°üÀ¨³õÊ¼»¯¡¢¸³Öµ¡¢²é¿´¡¢ÊÍ·ÅÄÚ´æ*/
+/*å¯¹é¡ºåºè¡¨çš„æ“ä½œï¼ŒåŒ…æ‹¬åˆå§‹åŒ–ã€èµ‹å€¼ã€æŸ¥çœ‹ã€é‡Šæ”¾å†…å­˜*/
 void ArrayList_callback()
 {
 	ArrayList* arraylist;
@@ -192,7 +192,7 @@ void ArrayList_callback()
 		printf("%p \n", (arraylist->data[i]));
 	}
 
-	//ÄÇ¸öCompareº¯ÊıÔõÃ´ÊµÏÖµÄ°¡£¿
+	//é‚£ä¸ªCompareå‡½æ•°æ€ä¹ˆå®ç°çš„å•Šï¼Ÿ
 	//printf("%d\n", arraylist_index_of(arraylist, , 3));
 
 	arraylist_free(arraylist);
